@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Brain, BarChart3, Cog, TrendingUp, Zap, Database, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import heroBg from "@/assets/hero-bg.jpg";
+import brandVisual from "@/assets/hero-bg-new.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -43,7 +44,7 @@ const testimonials = [
 ];
 
 const faqs = [
-  { q: "¿Qué tipo de consultoría IA ofrecéis?", a: "Ofrecemos consultoría estratégica e implementación de soluciones de inteligencia artificial: desde análisis de viabilidad hasta el desarrollo e integración de modelos de IA en tu operativa empresarial." },
+  { q: "¿Qué tipo de Consultoría IA ofrecéis?", a: "Ofrecemos Consultoría estratégica e implementación de soluciones de inteligencia artificial: desde análisis de viabilidad hasta el desarrollo e integración de modelos de IA en tu operativa empresarial." },
   { q: "¿Cuánto cuesta un proyecto de automatización?", a: "Cada proyecto es único. Realizamos un diagnóstico inicial gratuito para entender tus necesidades y ofrecerte un presupuesto personalizado acorde al alcance y complejidad." },
   { q: "¿En cuánto tiempo se implementa una solución?", a: "Dependiendo de la complejidad, los proyectos pueden oscilar entre 4 y 16 semanas. Trabajamos con metodología ágil para entregar valor desde las primeras fases." },
   { q: "¿Trabajáis solo en Galicia?", a: "Aunque nuestra sede está en Galicia, trabajamos con empresas de toda España de forma remota y presencial." },
@@ -62,35 +63,64 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-20 blur-[10px] scale-110" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_30%,hsl(var(--primary)/0.16),transparent_52%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/45 to-background" />
         </div>
+
         <div className="container relative z-10 py-20 md:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-3xl"
-          >
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
-              Consultoría IA en Galicia y España para{" "}
-              <span className="text-primary">transformar tu negocio</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Automatización empresarial, Business Intelligence y soluciones de Inteligencia Artificial personalizadas.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild>
-                <Link to="/contacto">
-                  Solicitar consultoría
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/servicios">Ver servicios</Link>
-              </Button>
-            </div>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-7 max-w-3xl lg:pr-4"
+            >
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
+                <span className="text-primary">Consultoría estratégica en inteligencia artificial</span>
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+                Automatización empresarial, Business Intelligence y soluciones de Inteligencia Artificial personalizadas.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" asChild>
+                  <Link to="/contacto">
+                    Solicitar Consultoría
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link to="/servicios">Ver servicios</Link>
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:col-span-5 relative hidden lg:block lg:-ml-6"
+            >
+              <div className="absolute -inset-10 bg-[radial-gradient(circle_at_50%_45%,hsl(var(--primary)/0.24),transparent_68%)] blur-2xl" />
+              <div className="relative mx-auto w-full max-w-[34rem]">
+                <div className="relative overflow-hidden rounded-[2rem] border border-white/40 shadow-[0_28px_65px_hsl(var(--foreground)/0.12)] bg-white/25 backdrop-blur-[2px]">
+                  <img
+                    src={brandVisual}
+                    alt="Imagen de marca Synertekia"
+                    className="w-full h-auto object-cover align-middle"
+                    style={{
+                      WebkitMaskImage:
+                        "radial-gradient(115% 110% at 50% 48%, rgba(0,0,0,0.98) 42%, rgba(0,0,0,0.82) 64%, rgba(0,0,0,0.38) 82%, rgba(0,0,0,0) 100%)",
+                      maskImage:
+                        "radial-gradient(115% 110% at 50% 48%, rgba(0,0,0,0.98) 42%, rgba(0,0,0,0.82) 64%, rgba(0,0,0,0.38) 82%, rgba(0,0,0,0) 100%)",
+                    }}
+                  />
+                  <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(145deg,hsl(var(--background)/0.48),transparent_38%,hsl(var(--primary)/0.18)_72%,hsl(var(--background)/0.46))] mix-blend-multiply" />
+                  <div className="absolute inset-0 pointer-events-none border border-white/30 rounded-[2rem]" />
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -265,7 +295,7 @@ const Index = () => {
             </p>
             <Button size="lg" variant="secondary" asChild>
               <Link to="/contacto">
-                Solicitar consultoría gratuita
+                Solicitar Consultoría gratuita
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -277,3 +307,7 @@ const Index = () => {
 };
 
 export default Index;
+
+
+
+
