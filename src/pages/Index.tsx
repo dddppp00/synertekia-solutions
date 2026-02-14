@@ -10,7 +10,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import heroBg from "@/assets/hero-bg.jpg";
 import brandVisual from "@/assets/hero-bg-new.jpg";
 
 const fadeUp = {
@@ -63,64 +62,47 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-20 blur-[10px] scale-110" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_30%,hsl(var(--primary)/0.16),transparent_52%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/45 to-background" />
+          <div className="absolute inset-y-0 right-0 w-[74%] md:w-[68%] lg:w-[64%] xl:w-[60%]">
+            <img
+              src={brandVisual}
+              alt=""
+              className="w-full h-full object-cover object-[86%_55%] md:object-[90%_56%] lg:object-[96%_56%]"
+              style={{
+                WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
+                maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
+              }}
+            />
+          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.84)_0%,hsl(var(--background)/0.66)_34%,hsl(var(--background)/0.46)_56%,hsl(var(--background)/0.34)_74%,hsl(var(--background)/0.38)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-transparent to-background/45" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.14),transparent_52%)]" />
         </div>
 
         <div className="container relative z-10 py-20 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="lg:col-span-7 max-w-3xl lg:pr-4"
-            >
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
-                <span className="text-primary">Consultoría estratégica en inteligencia artificial</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-                Automatización empresarial, Business Intelligence y soluciones de Inteligencia Artificial personalizadas.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild>
-                  <Link to="/contacto">
-                    Solicitar Consultoría
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/servicios">Ver servicios</Link>
-                </Button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-5 relative hidden lg:block lg:-ml-6"
-            >
-              <div className="absolute -inset-10 bg-[radial-gradient(circle_at_50%_45%,hsl(var(--primary)/0.24),transparent_68%)] blur-2xl" />
-              <div className="relative mx-auto w-full max-w-[34rem]">
-                <div className="relative overflow-hidden rounded-[2rem] border border-white/40 shadow-[0_28px_65px_hsl(var(--foreground)/0.12)] bg-white/25 backdrop-blur-[2px]">
-                  <img
-                    src={brandVisual}
-                    alt="Imagen de marca Synertekia"
-                    className="w-full h-auto object-cover align-middle"
-                    style={{
-                      WebkitMaskImage:
-                        "radial-gradient(115% 110% at 50% 48%, rgba(0,0,0,0.98) 42%, rgba(0,0,0,0.82) 64%, rgba(0,0,0,0.38) 82%, rgba(0,0,0,0) 100%)",
-                      maskImage:
-                        "radial-gradient(115% 110% at 50% 48%, rgba(0,0,0,0.98) 42%, rgba(0,0,0,0.82) 64%, rgba(0,0,0,0.38) 82%, rgba(0,0,0,0) 100%)",
-                    }}
-                  />
-                  <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(145deg,hsl(var(--background)/0.48),transparent_38%,hsl(var(--primary)/0.18)_72%,hsl(var(--background)/0.46))] mix-blend-multiply" />
-                  <div className="absolute inset-0 pointer-events-none border border-white/30 rounded-[2rem]" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl lg:max-w-2xl xl:max-w-3xl"
+          >
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
+              <span className="text-primary">Consultoría estratégica en inteligencia artificial</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+              Automatización empresarial, Business Intelligence y soluciones de Inteligencia Artificial personalizadas.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" asChild>
+                <Link to="/contacto">
+                  Solicitar Consultoría
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild className="bg-background/65 backdrop-blur-sm">
+                <Link to="/servicios">Ver servicios</Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 

@@ -179,7 +179,7 @@ const Contacto = () => {
               <div className="bg-card rounded-lg p-6 border border-border">
                 <Mail className="h-6 w-6 text-primary mb-3" />
                 <h4 className="font-display font-semibold text-foreground mb-1">Email</h4>
-                <p className="text-muted-foreground text-sm">info@synertekia.com</p>
+                <p className="text-muted-foreground text-sm">info@expertosenia.gal</p>
               </div>
             </div>
           </div>

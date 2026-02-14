@@ -35,7 +35,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold mb-4">Contacto</h4>
             <div className="text-sm text-primary-foreground/70 space-y-2">
               <p>Galicia, España</p>
-              <p>info@synertekia.com</p>
+              <p>info@expertosenia.gal</p>
             </div>
           </div>
         </div>
