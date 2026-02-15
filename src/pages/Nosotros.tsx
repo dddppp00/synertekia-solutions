@@ -30,7 +30,7 @@ const Nosotros = () => {
           >
             <div className="space-y-6 text-muted-foreground leading-relaxed mb-16">
               <p>
-                <strong className="text-foreground">SYNERTEKIA</strong> nace de la convicción de que la inteligencia artificial y la automatización no son privilegio de las grandes corporaciones. Desde Galicia, ayudamos a empresas y autónomos de toda España a integrar estas tecnologías de forma estratégica y accesible.
+                <strong className="text-foreground">SYNERTEKIA</strong> nace de la convicción de que la inteligencia artificial y la automatización no son privilegio de las grandes corporaciones. Nuestra misión es ayudar a empresas y autónomos a integrar estas tecnologías de forma estratégica y accesible.
               </p>
               <p>
                 Nuestro enfoque combina visión estratégica con capacidad técnica. No vendemos tecnología por vender: analizamos, diseñamos e implementamos soluciones que resuelven problemas reales y generan retorno de inversión medible.

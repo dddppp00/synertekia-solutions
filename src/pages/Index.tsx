@@ -66,16 +66,16 @@ const Index = () => {
             <img
               src={brandVisual}
               alt=""
-              className="w-full h-full object-cover object-[86%_55%] md:object-[90%_56%] lg:object-[96%_56%]"
+              className="w-full h-full object-cover object-[86%_55%] md:object-[90%_56%] lg:object-[96%_56%] contrast-[1.06] saturate-[1.04] brightness-[1.02]"
               style={{
                 WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
                 maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
               }}
             />
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.84)_0%,hsl(var(--background)/0.66)_34%,hsl(var(--background)/0.46)_56%,hsl(var(--background)/0.34)_74%,hsl(var(--background)/0.38)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-transparent to-background/45" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.14),transparent_52%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.72)_0%,hsl(var(--background)/0.46)_34%,hsl(var(--background)/0.24)_56%,hsl(var(--background)/0.14)_74%,hsl(var(--background)/0.18)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/12 via-transparent to-background/18" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.08),transparent_52%)]" />
         </div>
 
         <div className="container relative z-10 py-20 md:py-32">
@@ -88,7 +88,7 @@ const Index = () => {
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
               <span className="text-primary">Consultoría estratégica en inteligencia artificial</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl leading-relaxed">
               Automatización empresarial, Business Intelligence y soluciones de Inteligencia Artificial personalizadas.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

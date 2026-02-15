@@ -9,73 +9,73 @@ const casesData: Record<string, {
   solution: string; technologies: string[]; results: { label: string; value: string }[];
 }> = {
   "automatizacion-logistica": {
-    title: "Automatización logística integral",
-    sector: "Logística",
-    context: "Empresa de logística con más de 200 empleados que gestionaba manualmente pedidos, facturación y tracking de envíos, generando errores frecuentes y retrasos.",
-    problem: "Procesos manuales lentos y propensos a errores en la gestión de más de 5.000 pedidos mensuales, con un equipo administrativo sobrecargado.",
-    solution: "Implementamos una solución de RPA con agentes inteligentes que automatiza el ciclo completo: recepción de pedido, asignación de ruta, facturación y notificación al cliente.",
-    technologies: ["UiPath", "Python", "API REST", "PostgreSQL", "Power Automate"],
+    title: "Flujos automatizados administrativos y contables",
+    sector: "Automatizacion",
+    context: "Organizacion con alto volumen de tareas administrativas repetitivas repartidas entre varias areas.",
+    problem: "El equipo invertia muchas horas en registro de dietas, extracciones contables y operaciones bancarias manuales, con riesgo de errores y poca trazabilidad.",
+    solution: "Se implantaron flujos automatizados para el registro de dietas, extraccion masiva de balance y PyG, descarga automatizada de subvenciones via API y contabilizacion de remesas bancarias.",
+    technologies: ["Power Automate", "Python", "APIs REST", "Excel", "SQL"],
     results: [
-      { label: "Eficiencia operativa", value: "+40%" },
-      { label: "Errores de facturación", value: "-95%" },
-      { label: "Tiempo de procesamiento", value: "-70%" },
-      { label: "ROI en 6 meses", value: "320%" },
+      { label: "Tiempo administrativo", value: "-65%" },
+      { label: "Errores manuales", value: "-70%" },
+      { label: "Procesos trazables", value: "100%" },
+      { label: "Tiempo de cierre", value: "-40%" },
     ],
   },
   "bi-retail": {
-    title: "Business Intelligence para retail",
-    sector: "Retail",
-    context: "Cadena de tiendas con 15 puntos de venta que carecía de visibilidad centralizada sobre ventas, inventario y comportamiento del cliente.",
-    problem: "Datos dispersos en múltiples sistemas sin conexión, imposibilitando la toma de decisiones basada en datos y la predicción de demanda.",
-    solution: "Desarrollamos un ecosistema de BI con dashboards en tiempo real, integración de todas las fuentes de datos y un modelo de predicción de demanda.",
-    technologies: ["Power BI", "Python", "SQL Server", "Azure", "Machine Learning"],
+    title: "Formacion de IA en sector hotelero",
+    sector: "Formacion",
+    context: "Cadena hotelera que necesitaba mejorar la productividad del personal administrativo sin aumentar plantilla.",
+    problem: "Falta de conocimiento practico para usar IA en tareas diarias como redaccion, analisis documental y gestion interna.",
+    solution: "Se disenaron sesiones practicas para personal administrativo con casos reales del sector, guias de prompts y protocolo de uso seguro de IA.",
+    technologies: ["ChatGPT", "Copilot", "M365", "Notion", "Canva"],
     results: [
-      { label: "Incremento en ventas", value: "+25%" },
-      { label: "Reducción de stock muerto", value: "-40%" },
-      { label: "Tiempo de reporting", value: "-80%" },
-      { label: "Precisión de forecasting", value: "92%" },
+      { label: "Adopcion interna", value: "+80%" },
+      { label: "Tiempo en tareas de oficina", value: "-35%" },
+      { label: "Satisfaccion del equipo", value: "+42%" },
+      { label: "Documentos estandarizados", value: "+60%" },
     ],
   },
   "agente-ia-atencion": {
-    title: "Agente IA de atención al cliente",
-    sector: "Servicios",
-    context: "Empresa de servicios con más de 10.000 clientes que recibía un volumen creciente de consultas por múltiples canales.",
-    problem: "Tiempos de espera inaceptables, respuestas inconsistentes y un equipo de soporte que no podía escalar al ritmo de crecimiento.",
-    solution: "Diseñamos e implementamos un agente conversacional con NLP capaz de resolver el 70% de consultas sin intervención humana, integrado en web, WhatsApp y email.",
-    technologies: ["OpenAI API", "LangChain", "Node.js", "WhatsApp API", "PostgreSQL"],
+    title: "Curso de iniciacion a la IA",
+    sector: "Formacion",
+    context: "Programa para perfiles no tecnicos que querian comenzar a usar IA en su trabajo con criterio.",
+    problem: "Existia interes en IA, pero sin base metodologica para aplicar herramientas de forma segura y con resultados utiles.",
+    solution: "Se impartio un curso de iniciacion orientado a productividad, automatizacion basica y evaluacion de calidad de respuestas de modelos generativos.",
+    technologies: ["ChatGPT", "Gemini", "Claude", "Google Workspace", "Miro"],
     results: [
-      { label: "Tiempo de respuesta", value: "-60%" },
-      { label: "Consultas resueltas por IA", value: "70%" },
-      { label: "Satisfacción del cliente", value: "+30%" },
-      { label: "Coste por consulta", value: "-55%" },
+      { label: "Personas formadas", value: "+120" },
+      { label: "Nivel de autonomia", value: "+75%" },
+      { label: "Uso semanal de IA", value: "3x" },
+      { label: "Valoracion media", value: "4.8/5" },
     ],
   },
   "analisis-predictivo-finanzas": {
-    title: "Análisis predictivo financiero",
-    sector: "Finanzas",
-    context: "Empresa financiera que necesitaba mejorar la precisión de sus previsiones de flujo de caja y optimizar sus inversiones a medio plazo.",
-    problem: "Modelos de forecasting manuales basados en hojas de cálculo con baja precisión y alto consumo de tiempo del equipo financiero.",
-    solution: "Desarrollamos un modelo de machine learning para predicción de flujos de caja con actualización automática y alertas inteligentes.",
-    technologies: ["Python", "TensorFlow", "Apache Airflow", "PostgreSQL", "Grafana"],
+    title: "Analisis financiero desde XML",
+    sector: "Analisis de datos",
+    context: "Empresa con multiples fuentes de datos financieros en formato XML y consolidacion manual mensual.",
+    problem: "La lectura manual de XML y su transformacion para analisis consumia demasiado tiempo y limitaba la calidad del reporting.",
+    solution: "Se construyo un pipeline de extraccion, limpieza y modelado de datos financieros desde XML, con validaciones y cuadros de mando automatizados.",
+    technologies: ["Python", "Pandas", "Power BI", "SQL", "XML parsers"],
     results: [
-      { label: "Precisión de forecasting", value: "+35%" },
-      { label: "Tiempo de análisis", value: "-65%" },
-      { label: "Decisiones automatizadas", value: "40%" },
-      { label: "Ahorro anual", value: "€120K" },
+      { label: "Tiempo de consolidacion", value: "-55%" },
+      { label: "Calidad de datos", value: "+45%" },
+      { label: "Reportes automatizados", value: "100%" },
+      { label: "Tiempo de analisis", value: "-50%" },
     ],
   },
   "saas-gestion-proyectos": {
-    title: "SaaS de gestión de proyectos IA",
-    sector: "Tecnología",
-    context: "Consultora tecnológica que gestionaba proyectos de forma descentralizada, sin visibilidad global ni estimaciones fiables de tiempo y recursos.",
-    problem: "Sobrecarga de gestión manual, estimaciones imprecisas y falta de herramientas adaptadas a su metodología de trabajo.",
-    solution: "Creamos una plataforma SaaS a medida con asignación inteligente de recursos, estimación automática basada en datos históricos y reporting ejecutivo.",
-    technologies: ["React", "Node.js", "PostgreSQL", "OpenAI", "Docker", "AWS"],
+    title: "GPTs personalizados para productividad",
+    sector: "IA personalizada",
+    context: "Equipos con alta carga documental y necesidad de generar respuestas especializadas en distintos dominios.",
+    problem: "Se perdia mucho tiempo en redaccion de documentos, escritos para AAPP y consulta de conocimiento interno disperso.",
+    solution: "Se desarrollo una bateria de GPTs personalizados y agentes con bases de conocimiento diversas, incluyendo asistentes para escritos para AAPP.",
+    technologies: ["OpenAI", "RAG", "Vector DB", "Python", "Make"],
     results: [
-      { label: "Proyectos gestionados", value: "3x" },
-      { label: "Precisión de estimaciones", value: "+45%" },
-      { label: "Tiempo de reporting", value: "-90%" },
-      { label: "Satisfacción del equipo", value: "+50%" },
+      { label: "Tiempo de redaccion", value: "-60%" },
+      { label: "Productividad global", value: "+38%" },
+      { label: "Consultas resueltas", value: "4x" },
+      { label: "Tiempo de onboarding", value: "-45%" },
     ],
   },
 };
@@ -119,7 +119,7 @@ const CaseDetail = () => {
             {[
               { title: "Contexto", content: caseData.context },
               { title: "Problema", content: caseData.problem },
-              { title: "Solución implementada", content: caseData.solution },
+              { title: "Solucion implementada", content: caseData.solution },
             ].map((section) => (
               <div key={section.title} className="mb-8">
                 <h2 className="font-display text-xl font-semibold text-foreground mb-3">{section.title}</h2>
@@ -128,7 +128,7 @@ const CaseDetail = () => {
             ))}
 
             <div className="mb-12">
-              <h2 className="font-display text-xl font-semibold text-foreground mb-3">Tecnologías utilizadas</h2>
+              <h2 className="font-display text-xl font-semibold text-foreground mb-3">Tecnologias utilizadas</h2>
               <div className="flex flex-wrap gap-2">
                 {caseData.technologies.map((tech) => (
                   <span key={tech} className="bg-secondary text-foreground text-sm px-3 py-1 rounded-full">{tech}</span>
@@ -137,10 +137,10 @@ const CaseDetail = () => {
             </div>
 
             <div className="bg-foreground rounded-lg p-8 text-center">
-              <h3 className="font-display text-xl font-bold text-primary-foreground mb-3">¿Quieres resultados similares?</h3>
-              <p className="text-primary-foreground/70 mb-6">Cuéntanos tu reto y diseñamos la solución perfecta.</p>
+              <h3 className="font-display text-xl font-bold text-primary-foreground mb-3">Quieres resultados similares?</h3>
+              <p className="text-primary-foreground/70 mb-6">Cuentanos tu reto y disenamos la solucion perfecta.</p>
               <Button variant="secondary" asChild>
-                <Link to="/contacto">Solicitar consultoría <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <Link to="/contacto">Solicitar consultoria <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
             </div>
           </motion.div>

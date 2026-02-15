@@ -10,6 +10,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import type { PostgrestError } from "@supabase/supabase-js";
 
 const contactSchema = z.object({
   nombre: z.string().trim().min(1, "El nombre es obligatorio").max(100),
@@ -20,6 +21,34 @@ const contactSchema = z.object({
 });
 
 type FormData = z.infer<typeof contactSchema>;
+
+const getContactErrorMessage = (error: unknown) => {
+  const pgError = error as PostgrestError | null;
+  const message = typeof pgError?.message === "string" ? pgError.message : "";
+
+  if (pgError?.code === "42501") {
+    return "Permisos insuficientes en Supabase. Revisa la policy RLS para insertar en contacts.";
+  }
+
+  if (pgError?.code === "42P01") {
+    return "La tabla contacts no existe en Supabase.";
+  }
+
+  if (message.toLowerCase().includes("invalid api key")) {
+    return "La API key de Supabase no es valida. Revisa VITE_SUPABASE_PUBLISHABLE_KEY.";
+  }
+
+  if (message.toLowerCase().includes("failed to fetch")) {
+    return "No se pudo conectar con Supabase. Verifica VITE_SUPABASE_URL y tu conexion.";
+  }
+
+  const code = pgError?.code ? `Codigo: ${pgError.code}. ` : "";
+  const details = pgError?.details ? `Detalle: ${pgError.details}. ` : "";
+  const hint = pgError?.hint ? `Hint: ${pgError.hint}. ` : "";
+  const rawMessage = message || "Error desconocido";
+
+  return `${code}${details}${hint}Mensaje: ${rawMessage}`;
+};
 
 const Contacto = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -68,8 +97,9 @@ const Contacto = () => {
       if (error) throw error;
       setSubmitted(true);
       toast({ title: "¡Mensaje enviado!", description: "Nos pondremos en contacto contigo pronto." });
-    } catch {
-      toast({ title: "Error", description: "Hubo un problema al enviar el formulario. Inténtalo de nuevo.", variant: "destructive" });
+    } catch (error: unknown) {
+      console.error("Error enviando contacto a Supabase:", error);
+      toast({ title: "Error", description: getContactErrorMessage(error), variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -190,3 +220,4 @@ const Contacto = () => {
 };
 
 export default Contacto;
+

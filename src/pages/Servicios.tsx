@@ -1,52 +1,86 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Cog, BarChart3, Database, TrendingUp, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Brain,
+  Cog,
+  BarChart3,
+  Database,
+  TrendingUp,
+  Zap,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
+import consultoriaImage from "@/assets/consultoria.png";
+import analiticaImage from "@/assets/analitica.png";
+import formacionImage from "@/assets/formacion.png";
+import automatizacionImage from "@/assets/automatizacion.png";
+import solucionesImage from "@/assets/soluciones.png";
 
-const services = [
+type Service = {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+  benefits: string[];
+  results: string;
+  image?: string;
+  imageAlt?: string;
+};
+
+const services: Service[] = [
   {
     icon: Brain,
-    title: "Consultoría en Inteligencia Artificial",
-    desc: "Analizamos tu negocio para identificar oportunidades de aplicación de IA. Diseñamos una hoja de ruta estratégica y te acompañamos en cada fase de implementación.",
-    benefits: ["Diagnóstico de madurez digital", "Hoja de ruta IA personalizada", "Acompañamiento en la implementación"],
-    results: "Hasta un 50% de mejora en eficiencia operativa.",
-  },
-  {
-    icon: Database,
-    title: "Soluciones IA Personalizadas",
-    desc: "Desarrollamos modelos de machine learning, procesamiento de lenguaje natural y visión artificial adaptados a las necesidades específicas de tu empresa.",
-    benefits: ["Modelos ML a medida", "NLP y chatbots inteligentes", "Visión artificial aplicada"],
-    results: "Automatización de decisiones complejas con +90% de precisión.",
+    title: "Consultorias de IA",
+    desc: "Evaluamos procesos, datos y objetivos para definir una hoja de ruta de IA realista y alineada con el negocio.",
+    benefits: ["Diagnostico de madurez digital", "Roadmap de adopcion por fases", "Acompanamiento estrategico y tecnico"],
+    results: "Priorizacion clara de iniciativas con impacto medible.",
+    image: consultoriaImage,
+    imageAlt: "Consultoria de IA",
   },
   {
     icon: Zap,
-    title: "SaaS Adaptado a Negocio",
-    desc: "Creamos plataformas software como servicio diseñadas específicamente para tu sector, escalables y con integración de inteligencia artificial.",
-    benefits: ["Plataformas escalables", "Integración IA nativa", "Mantenimiento y soporte continuo"],
-    results: "Reducción de costes operativos hasta un 35%.",
+    title: "Formaciones de IA",
+    desc: "Disenamos formaciones practicas para equipos administrativos y tecnicos, adaptadas al nivel y necesidades de cada empresa.",
+    benefits: ["Curso de iniciacion a la IA", "Formaciones por area o departamento", "Casos de uso aplicados al dia a dia"],
+    results: "Equipos mas autonomos en el uso diario de IA.",
+    image: formacionImage,
+    imageAlt: "Formacion de IA",
   },
   {
-    icon: BarChart3,
-    title: "Business Intelligence",
-    desc: "Implementamos dashboards interactivos y sistemas de reporting que transforman datos crudos en insights accionables para la toma de decisiones.",
-    benefits: ["Dashboards en tiempo real", "KPIs automatizados", "Reporting ejecutivo"],
-    results: "Decisiones un 60% más rápidas basadas en datos.",
+    icon: Database,
+    title: "Soluciones de IA personalizadas",
+    desc: "Construimos soluciones de IA a medida para tus flujos de trabajo y sistemas internos.",
+    benefits: ["GPTs personalizados", "Agentes de Copilot", "Implantaciones completas de IA en local (transcriptor)"],
+    results: "Mayor productividad con herramientas adaptadas a tu operativa.",
+    image: solucionesImage,
+    imageAlt: "Soluciones de IA personalizadas",
   },
   {
     icon: TrendingUp,
-    title: "Análisis de Datos",
-    desc: "Aplicamos técnicas avanzadas de análisis estadístico y predictivo para extraer patrones ocultos y anticipar tendencias de mercado.",
-    benefits: ["Análisis predictivo", "Segmentación avanzada", "Detección de anomalías"],
-    results: "Anticipación a tendencias con hasta 3 meses de ventaja.",
+    title: "Analisis de datos",
+    desc: "Convertimos datos dispersos en informacion accionable para direccion y operaciones.",
+    benefits: ["Power BI para cuadros de mando", "Procesamiento de datos con Python", "Extraccion y procesamiento estructurado de documentos"],
+    results: "Decisiones mas rapidas y mejor control del negocio.",
+    image: analiticaImage,
+    imageAlt: "Analitica y analisis de datos",
   },
   {
     icon: Cog,
-    title: "Automatización Empresarial (RPA + Agentes IA)",
-    desc: "Implementamos robots de software y agentes inteligentes que automatizan procesos repetitivos, reduciendo errores y liberando talento humano.",
-    benefits: ["RPAs para procesos repetitivos", "Agentes IA autónomos", "Integración con sistemas existentes"],
-    results: "Hasta un 80% de reducción en tareas manuales.",
+    title: "Automatizacion de procesos",
+    desc: "Automatizamos procesos administrativos y operativos para reducir tareas manuales y errores repetitivos.",
+    benefits: ["Flujos de PAC para envios masivos de correos", "Automatizaciones de backoffice", "Integracion con APIs y sistemas existentes"],
+    results: "Procesos mas rapidos, trazables y con menor carga manual.",
+    image: automatizacionImage,
+    imageAlt: "Automatizacion de procesos",
+  },
+  {
+    icon: BarChart3,
+    title: "Implementacion integral",
+    desc: "Combinamos consultoria, IA, analitica y automatizacion en un despliegue coherente y escalable.",
+    benefits: ["Arquitectura funcional por bloques", "Estandarizacion de procesos", "Seguimiento continuo de resultados"],
+    results: "Adopcion de IA conectada de principio a fin.",
   },
 ];
 
@@ -58,7 +92,7 @@ const Servicios = () => {
           <SectionHeading
             tag="Servicios"
             title="Nuestras soluciones"
-            description="Cada servicio está diseñado para generar impacto medible en tu negocio, combinando estrategia y tecnología de vanguardia."
+            description="Cada servicio esta disenado para generar impacto medible en tu negocio, combinando estrategia y tecnologia aplicada."
           />
 
           <div className="space-y-16">
@@ -88,13 +122,19 @@ const Servicios = () => {
                   </div>
                   <Button asChild>
                     <Link to="/contacto">
-                      Solicitar información
+                      Solicitar informacion
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
-                <div className={`bg-secondary rounded-lg aspect-[4/3] flex items-center justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <s.icon className="h-24 w-24 text-primary/20" />
+                <div className={`bg-secondary rounded-lg aspect-[4/3] overflow-hidden ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                  {s.image ? (
+                    <img src={s.image} alt={s.imageAlt ?? s.title} className="h-full w-full object-cover" loading="lazy" />
+                  ) : (
+                    <div className="h-full w-full flex items-center justify-center">
+                      <s.icon className="h-24 w-24 text-primary/20" />
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -106,14 +146,14 @@ const Servicios = () => {
       <section className="py-20 bg-foreground">
         <div className="container text-center">
           <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">
-            ¿No sabes por dónde empezar?
+            No sabes por donde empezar?
           </h2>
           <p className="text-primary-foreground/70 mb-8 max-w-xl mx-auto">
-            Te ayudamos a identificar la solución perfecta para tu negocio con una consultoría inicial sin compromiso.
+            Te ayudamos a identificar la solucion perfecta para tu negocio con una consultoria inicial sin compromiso.
           </p>
           <Button size="lg" variant="secondary" asChild>
             <Link to="/contacto">
-              Solicitar consultoría gratuita
+              Solicitar consultoria gratuita
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

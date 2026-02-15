@@ -6,11 +6,41 @@ import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 
 const cases = [
-  { id: "automatizacion-logistica", title: "Automatización logística integral", sector: "Logística", result: "+40% eficiencia operativa", desc: "Implementación de RPA para gestión de pedidos, facturación automática y tracking en tiempo real." },
-  { id: "bi-retail", title: "Business Intelligence para retail", sector: "Retail", result: "+25% incremento en ventas", desc: "Dashboard integral de ventas, inventario y predicción de demanda con machine learning." },
-  { id: "agente-ia-atencion", title: "Agente IA de atención al cliente", sector: "Servicios", result: "-60% tiempo de respuesta", desc: "Chatbot con procesamiento de lenguaje natural integrado en web, WhatsApp y email." },
-  { id: "analisis-predictivo-finanzas", title: "Análisis predictivo financiero", sector: "Finanzas", result: "+35% precisión en forecasting", desc: "Modelo predictivo para anticipar flujos de caja y optimizar inversiones." },
-  { id: "saas-gestion-proyectos", title: "SaaS de gestión de proyectos IA", sector: "Tecnología", result: "3x más proyectos gestionados", desc: "Plataforma a medida con asignación inteligente de recursos y estimación automatizada." },
+  {
+    id: "automatizacion-logistica",
+    title: "Flujos automatizados administrativos y contables",
+    sector: "Automatizacion",
+    result: "-65% tiempo en tareas recurrentes",
+    desc: "Automatizacion del registro de dietas, extraccion masiva de balance y PyG, descarga de subvenciones via API y contabilizacion de remesas bancarias.",
+  },
+  {
+    id: "bi-retail",
+    title: "Formacion de IA en sector hotelero",
+    sector: "Formacion",
+    result: "+80% adopcion interna",
+    desc: "Capacitacion para personal administrativo en tareas asistidas con IA, prompts efectivos y buenas practicas de uso seguro.",
+  },
+  {
+    id: "agente-ia-atencion",
+    title: "Curso de iniciacion a la IA",
+    sector: "Formacion",
+    result: "Mas de 120 personas formadas",
+    desc: "Programa introductorio para perfiles no tecnicos enfocado en productividad personal, automatizacion basica y uso responsable de herramientas IA.",
+  },
+  {
+    id: "analisis-predictivo-finanzas",
+    title: "Analisis financiero desde XML",
+    sector: "Analisis de datos",
+    result: "Cierres mas rapidos y trazables",
+    desc: "Procesamiento y analisis de datos financieros de una empresa a partir de XML, con validaciones y cuadros de mando para seguimiento.",
+  },
+  {
+    id: "saas-gestion-proyectos",
+    title: "GPTs personalizados para productividad",
+    sector: "IA personalizada",
+    result: "Reduccion notable de tiempos",
+    desc: "Desarrollo de GPTs y agentes con bases de conocimiento diversas, incluyendo asistentes para escritos dirigidos a AAPP.",
+  },
 ];
 
 const Portfolio = () => {
@@ -20,7 +50,7 @@ const Portfolio = () => {
         <div className="container">
           <SectionHeading
             tag="Portfolio"
-            title="Casos de éxito"
+            title="Casos de exito"
             description="Proyectos reales donde hemos generado impacto medible para nuestros clientes."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -55,11 +85,11 @@ const Portfolio = () => {
       <section className="py-20 bg-foreground">
         <div className="container text-center">
           <h2 className="font-display text-3xl font-bold text-primary-foreground mb-4">
-            ¿Quieres ser nuestro próximo caso de éxito?
+            Quieres ser nuestro proximo caso de exito?
           </h2>
-          <p className="text-primary-foreground/70 mb-8">Cuéntanos tu reto y diseñamos la solución.</p>
+          <p className="text-primary-foreground/70 mb-8">Cuentanos tu reto y disenamos la solucion.</p>
           <Button size="lg" variant="secondary" asChild>
-            <Link to="/contacto">Solicitar consultoría <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Link to="/contacto">Solicitar consultoria <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
       </section>
