@@ -89,7 +89,7 @@ const Index = () => {
               <span className="text-primary">Consultoría estratégica en inteligencia artificial</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl leading-relaxed">
-              Automatización empresarial, Business Intelligence y soluciones de Inteligencia Artificial personalizadas.
+            Soluciones de IA personalizadas, formación, automatización de procesos y Business Intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
