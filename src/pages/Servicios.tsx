@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Brain,
   Cog,
-  BarChart3,
   Database,
   TrendingUp,
   Zap,
@@ -32,55 +31,48 @@ type Service = {
 const services: Service[] = [
   {
     icon: Brain,
-    title: "Consultorias de IA",
-    desc: "Evaluamos procesos, datos y objetivos para definir una hoja de ruta de IA realista y alineada con el negocio.",
-    benefits: ["Diagnostico de madurez digital", "Roadmap de adopcion por fases", "Acompanamiento estrategico y tecnico"],
-    results: "Priorizacion clara de iniciativas con impacto medible.",
+    title: "Consultoría en IA",
+    desc: "Evaluamos tus procesos, datos y objetivos para definir una hoja de ruta de Inteligencia Artificial realista y 100% alineada con tu modelo de negocio.",
+    benefits: ["Diagnóstico de madurez digital.", "Roadmap de adopción por fases.", "Acompañamiento estratégico y técnico."],
+    results: "Priorización clara de iniciativas con impacto medible.",
     image: consultoriaImage,
-    imageAlt: "Consultoria de IA",
+    imageAlt: "Consultoría en IA",
   },
   {
     icon: Zap,
-    title: "Formaciones de IA",
-    desc: "Disenamos formaciones practicas para equipos administrativos y tecnicos, adaptadas al nivel y necesidades de cada empresa.",
-    benefits: ["Curso de iniciacion a la IA", "Formaciones por area o departamento", "Casos de uso aplicados al dia a dia"],
-    results: "Equipos mas autonomos en el uso diario de IA.",
+    title: "Formación en IA",
+    desc: "Diseñamos formaciones prácticas para directivos, equipos administrativos y técnicos, adaptadas al nivel y a las necesidades reales de tu empresa.",
+    benefits: ["Curso de iniciación a la IA.", "Formaciones específicas por área o departamento.", "Casos de uso aplicados al día a día."],
+    results: "Equipos más productivos y autónomos en el uso seguro de la IA.",
     image: formacionImage,
-    imageAlt: "Formacion de IA",
+    imageAlt: "Formación en IA",
   },
   {
     icon: Database,
-    title: "Soluciones de IA personalizadas",
-    desc: "Construimos soluciones de IA a medida para tus flujos de trabajo y sistemas internos.",
-    benefits: ["GPTs personalizados", "Agentes de Copilot", "Implantaciones completas de IA en local (transcriptor)"],
-    results: "Mayor productividad con herramientas adaptadas a tu operativa.",
+    title: "Soluciones de IA Personalizadas",
+    desc: "Construimos soluciones de Inteligencia Artificial a medida para integrarse directamente en tus flujos de trabajo y sistemas internos.",
+    benefits: ["Desarrollo de GPTs personalizados.", "Agentes de Copilot y asistentes virtuales.", "Implantaciones completas de IA en local (ej. transcriptores seguros)."],
+    results: "Mayor productividad con herramientas adaptadas a tu operativa exacta.",
     image: solucionesImage,
-    imageAlt: "Soluciones de IA personalizadas",
+    imageAlt: "Soluciones de IA Personalizadas",
   },
   {
     icon: TrendingUp,
-    title: "Analisis de datos",
-    desc: "Convertimos datos dispersos en informacion accionable para direccion y operaciones.",
-    benefits: ["Power BI para cuadros de mando", "Procesamiento de datos con Python", "Extraccion y procesamiento estructurado de documentos"],
-    results: "Decisiones mas rapidas y mejor control del negocio.",
+    title: "Análisis de Datos",
+    desc: "Convertimos tus datos dispersos en información procesable y visual para facilitar la toma de decisiones en dirección y operaciones.",
+    benefits: ["Cuadros de mando y Dashboards en Power BI.", "Procesamiento avanzado de datos con Python.", "Extracción y estructuración de documentos."],
+    results: "Decisiones más rápidas, seguras y un mejor control del negocio.",
     image: analiticaImage,
-    imageAlt: "Analitica y analisis de datos",
+    imageAlt: "Análisis de Datos",
   },
   {
     icon: Cog,
-    title: "Automatizacion de procesos",
-    desc: "Automatizamos procesos administrativos y operativos para reducir tareas manuales y errores repetitivos.",
-    benefits: ["Flujos de PAC para envios masivos de correos", "Automatizaciones de backoffice", "Integracion con APIs y sistemas existentes"],
-    results: "Procesos mas rapidos, trazables y con menor carga manual.",
+    title: "Automatización de Procesos",
+    desc: "Automatizamos tareas administrativas y operativas para reducir la carga manual y eliminar errores repetitivos.",
+    benefits: ["Flujos de Power Automate para envíos y gestión documental.", "Automatizaciones de backoffice.", "Integración con APIs y sistemas existentes."],
+    results: "Procesos más rápidos, 100% trazables y eficientes.",
     image: automatizacionImage,
-    imageAlt: "Automatizacion de procesos",
-  },
-  {
-    icon: BarChart3,
-    title: "Implementacion integral",
-    desc: "Combinamos consultoria, IA, analitica y automatizacion en un despliegue coherente y escalable.",
-    benefits: ["Arquitectura funcional por bloques", "Estandarizacion de procesos", "Seguimiento continuo de resultados"],
-    results: "Adopcion de IA conectada de principio a fin.",
+    imageAlt: "Automatización de Procesos",
   },
 ];
 
@@ -90,9 +82,9 @@ const Servicios = () => {
       <section className="py-20 md:py-28">
         <div className="container">
           <SectionHeading
-            tag="Servicios"
-            title="Nuestras soluciones"
-            description="Cada servicio esta disenado para generar impacto medible en tu negocio, combinando estrategia y tecnologia aplicada."
+            tag="SERVICIOS | Nuestras soluciones"
+            title="No vendemos tecnología por vender."
+            description="Cada servicio de Synertekia está diseñado para generar un impacto medible en tu empresa, combinando estrategia de negocio y tecnología punta aplicada de forma realista."
           />
 
           <div className="space-y-16">

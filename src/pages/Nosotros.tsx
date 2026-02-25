@@ -30,13 +30,13 @@ const Nosotros = () => {
           >
             <div className="space-y-6 text-muted-foreground leading-relaxed mb-16">
               <p>
-                <strong className="text-foreground">SYNERTEKIA</strong> nace de la convicción de que la inteligencia artificial y la automatización no son privilegio de las grandes corporaciones. Nuestra misión es ayudar a empresas y autónomos a integrar estas tecnologías de forma estratégica y accesible.
+                <strong className="text-foreground">SYNERTEKIA</strong> nace de una convicción firme: la inteligencia artificial y la automatización no son, ni deben ser, un privilegio exclusivo de las grandes corporaciones. Nuestra misión es ayudar a las Pymes y profesionales a integrar estas tecnologías de forma estratégica, accesible y, sobre todo, honesta.
               </p>
               <p>
-                Nuestro enfoque combina visión estratégica con capacidad técnica. No vendemos tecnología por vender: analizamos, diseñamos e implementamos soluciones que resuelven problemas reales y generan retorno de inversión medible.
+                Frente al "humo" y las falsas promesas tecnológicas, nuestro enfoque combina visión de negocio con una alta capacidad técnica. No vendemos tecnología por vender; analizamos, diseñamos e implementamos soluciones que resuelven problemas reales y generan un retorno de inversión (ROI) medible desde el primer día.
               </p>
               <p>
-                Creemos en la <strong className="text-foreground">sinergia entre tecnología y negocio</strong> — de ahí nuestro nombre. Cada proyecto es una colaboración donde entendemos tu operativa, tus retos y tus objetivos antes de proponer una solución.
+                Creemos en la <strong className="text-foreground">sinergia entre tecnología y negocio</strong> — de ahí nuestro nombre. Cada proyecto es una colaboración estrecha en la que primero entendemos tu operativa, tus retos y tus objetivos, y solo después, proponemos la solución técnica adecuada.
               </p>
             </div>
           </motion.div>
