@@ -1,81 +1,100 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { motion } from "framer-motion";
 
+const caseIds = [
+  "automatizacion-logistica",
+  "bi-retail",
+  "agente-ia-atencion",
+  "analisis-predictivo-finanzas",
+  "saas-gestion-proyectos",
+];
+
 const casesData: Record<string, {
-  title: string; sector: string; context: string; problem: string;
-  solution: string; technologies: string[]; results: { label: string; value: string }[];
+  shortTitle: string;
+  title: string;
+  sector: string;
+  context: string;
+  problem: string;
+  solution: string;
+  technologies: string[];
+  results: { label: string; value: string }[];
 }> = {
   "automatizacion-logistica": {
-    title: "Flujos automatizados administrativos y contables",
-    sector: "Automatizacion",
-    context: "Organizacion con alto volumen de tareas administrativas repetitivas repartidas entre varias areas.",
-    problem: "El equipo invertia muchas horas en registro de dietas, extracciones contables y operaciones bancarias manuales, con riesgo de errores y poca trazabilidad.",
-    solution: "Se implantaron flujos automatizados para el registro de dietas, extraccion masiva de balance y PyG, descarga automatizada de subvenciones via API y contabilizacion de remesas bancarias.",
+    shortTitle: "Flujos administrativos y contables",
+    title: "AUTOMATIZACIÓN | Flujos administrativos y contables",
+    sector: "Automatización",
+    context: "Organización con un alto volumen de tareas administrativas repetitivas.",
+    problem: "El equipo invertía demasiadas horas en el registro manual de dietas, extracciones y operaciones bancarias.",
+    solution: "Implantación de flujos automatizados para el registro de dietas, extracción masiva de balances y PyG, descarga de subvenciones vía API, contabilización de remesas bancarias y cualquier tipo de información para contabilidad.",
     technologies: ["Power Automate", "Python", "APIs REST", "Excel", "SQL"],
     results: [
       { label: "Tiempo administrativo", value: "-65%" },
       { label: "Errores manuales", value: "-70%" },
+      { label: "Tiempo de cierre contable", value: "-40%" },
       { label: "Procesos trazables", value: "100%" },
-      { label: "Tiempo de cierre", value: "-40%" },
     ],
   },
   "bi-retail": {
-    title: "Formacion de IA en sector hotelero",
-    sector: "Formacion",
-    context: "Cadena hotelera que necesitaba mejorar la productividad del personal administrativo sin aumentar plantilla.",
-    problem: "Falta de conocimiento practico para usar IA en tareas diarias como redaccion, analisis documental y gestion interna.",
-    solution: "Se disenaron sesiones practicas para personal administrativo con casos reales del sector, guias de prompts y protocolo de uso seguro de IA.",
-    technologies: ["ChatGPT", "Copilot", "M365", "Notion", "Canva"],
+    shortTitle: "IA en el sector hotelero",
+    title: "FORMACIÓN | IA en el sector hotelero",
+    sector: "Formación",
+    context: "Cadena hotelera con necesidad de mejorar la productividad administrativa.",
+    problem: "Falta de conocimiento práctico para aprovechar la IA en tareas diarias.",
+    solution: "Sesiones prácticas con casos reales del sector, guías de prompts y protocolo de uso seguro.",
+    technologies: ["ChatGPT", "Copilot", "Microsoft 365"],
     results: [
-      { label: "Adopcion interna", value: "+80%" },
-      { label: "Tiempo en tareas de oficina", value: "-35%" },
-      { label: "Satisfaccion del equipo", value: "+42%" },
-      { label: "Documentos estandarizados", value: "+60%" },
+      { label: "Tasa de adopción", value: "+80%" },
+      { label: "Satisfacción del equipo", value: "100%" },
+      { label: "Tiempo en tareas repetitivas", value: "-35%" },
+      { label: "Estandarización documental", value: "+60%" },
     ],
   },
   "agente-ia-atencion": {
-    title: "Curso de iniciacion a la IA",
-    sector: "Formacion",
-    context: "Programa para perfiles no tecnicos que querian comenzar a usar IA en su trabajo con criterio.",
-    problem: "Existia interes en IA, pero sin base metodologica para aplicar herramientas de forma segura y con resultados utiles.",
-    solution: "Se impartio un curso de iniciacion orientado a productividad, automatizacion basica y evaluacion de calidad de respuestas de modelos generativos.",
-    technologies: ["ChatGPT", "Gemini", "Claude", "Google Workspace", "Miro"],
+    shortTitle: "Curso de iniciación a la IA",
+    title: "FORMACIÓN | Curso de iniciación a la IA",
+    sector: "Formación",
+    context: "Programa dirigido a perfiles no técnicos de Pymes.",
+    problem: "Interés en la IA, pero falta de base metodológica para aplicarla de forma segura.",
+    solution: "Curso intensivo orientado a productividad, automatización y evaluación de respuestas.",
+    technologies: ["ChatGPT", "Gemini", "Copilot", "Google Workspace"],
     results: [
       { label: "Personas formadas", value: "+120" },
-      { label: "Nivel de autonomia", value: "+75%" },
+      { label: "Nivel de autonomía", value: "+75%" },
       { label: "Uso semanal de IA", value: "3x" },
-      { label: "Valoracion media", value: "4.8/5" },
+      { label: "Valoración media", value: "4.8/5" },
     ],
   },
   "analisis-predictivo-finanzas": {
-    title: "Analisis financiero desde XML",
-    sector: "Analisis de datos",
-    context: "Empresa con multiples fuentes de datos financieros en formato XML y consolidacion manual mensual.",
-    problem: "La lectura manual de XML y su transformacion para analisis consumia demasiado tiempo y limitaba la calidad del reporting.",
-    solution: "Se construyo un pipeline de extraccion, limpieza y modelado de datos financieros desde XML, con validaciones y cuadros de mando automatizados.",
+    shortTitle: "Control financiero desde XML",
+    title: "ANÁLISIS DE DATOS | Control financiero desde XML",
+    sector: "Análisis de datos",
+    context: "Consultora que analizaba sus datos financieros trabajando con múltiples archivos Excel, pasando ahora a utilizar ficheros XML.",
+    problem: "La transformación manual consumía demasiado tiempo y limitaba la agilidad del reporting.",
+    solution: "Construcción de un pipeline automatizado de extracción, limpieza y modelado de datos financieros.",
     technologies: ["Python", "Pandas", "Power BI", "SQL", "XML parsers"],
     results: [
-      { label: "Tiempo de consolidacion", value: "-55%" },
-      { label: "Calidad de datos", value: "+45%" },
+      { label: "Tiempo de consolidación", value: "-80%" },
+      { label: "Calidad y fiabilidad", value: "+90%" },
+      { label: "Tiempo de análisis", value: "-50%" },
       { label: "Reportes automatizados", value: "100%" },
-      { label: "Tiempo de analisis", value: "-50%" },
     ],
   },
   "saas-gestion-proyectos": {
-    title: "GPTs personalizados para productividad",
+    shortTitle: "GPTs para productividad",
+    title: "IA PERSONALIZADA | GPTs para productividad",
     sector: "IA personalizada",
-    context: "Equipos con alta carga documental y necesidad de generar respuestas especializadas en distintos dominios.",
-    problem: "Se perdia mucho tiempo en redaccion de documentos, escritos para AAPP y consulta de conocimiento interno disperso.",
-    solution: "Se desarrollo una bateria de GPTs personalizados y agentes con bases de conocimiento diversas, incluyendo asistentes para escritos para AAPP.",
-    technologies: ["OpenAI", "RAG", "Vector DB", "Python", "Make"],
+    context: "Equipos con alta carga documental especializada.",
+    problem: "Pérdida masiva de tiempo en la redacción de documentos y escritos para AAPP.",
+    solution: "Desarrollo de GPTs y agentes con bases de conocimiento diversas (asistentes para AAPP).",
+    technologies: ["ChatGPT", "RAG", "Vector DB", "Python"],
     results: [
-      { label: "Tiempo de redaccion", value: "-60%" },
-      { label: "Productividad global", value: "+38%" },
+      { label: "Tiempo de redacción", value: "-90%" },
+      { label: "Tiempo de onboarding", value: "-90%" },
+      { label: "Productividad global", value: "+80%" },
       { label: "Consultas resueltas", value: "4x" },
-      { label: "Tiempo de onboarding", value: "-45%" },
     ],
   },
 };
@@ -84,12 +103,18 @@ const CaseDetail = () => {
   const { id } = useParams();
   const caseData = id ? casesData[id] : null;
 
+  const currentIndex = id ? caseIds.indexOf(id) : -1;
+  const prevId = currentIndex > 0 ? caseIds[currentIndex - 1] : null;
+  const nextId = currentIndex < caseIds.length - 1 ? caseIds[currentIndex + 1] : null;
+
   if (!caseData) {
     return (
       <Layout>
         <div className="container py-32 text-center">
-          <h1 className="font-display text-3xl font-bold mb-4">Caso no encontrado</h1>
-          <Button asChild><Link to="/portfolio">Volver al portfolio</Link></Button>
+          <h1 className="font-display mb-4 text-3xl font-bold">Caso no encontrado</h1>
+          <Button asChild>
+            <Link to="/portfolio">Volver al portfolio</Link>
+          </Button>
         </div>
       </Layout>
     );
@@ -99,48 +124,104 @@ const CaseDetail = () => {
     <Layout>
       <article className="py-20 md:py-28">
         <div className="container max-w-4xl">
-          <Link to="/portfolio" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-8 transition-colors">
+          <Link
+            to="/portfolio"
+            className="mb-8 inline-flex items-center text-sm text-muted-foreground transition-colors hover:text-primary"
+          >
             <ArrowLeft className="mr-1 h-4 w-4" /> Volver al portfolio
           </Link>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <span className="text-xs font-semibold uppercase tracking-wider text-primary">{caseData.sector}</span>
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-8">{caseData.title}</h1>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+              {caseData.sector}
+            </span>
+            <h1 className="font-display mt-2 mb-8 text-3xl font-bold text-foreground md:text-4xl">
+              {caseData.title}
+            </h1>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {/* Métricas */}
+            <div className="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
               {caseData.results.map((r) => (
-                <div key={r.label} className="bg-primary/10 rounded-lg p-4 text-center">
+                <div key={r.label} className="rounded-lg bg-primary/10 p-4 text-center">
                   <p className="text-2xl font-bold text-primary">{r.value}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{r.label}</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{r.label}</p>
                 </div>
               ))}
             </div>
 
+            {/* Secciones */}
             {[
               { title: "Contexto", content: caseData.context },
-              { title: "Problema", content: caseData.problem },
-              { title: "Solucion implementada", content: caseData.solution },
+              { title: "El reto", content: caseData.problem },
+              { title: "La solución", content: caseData.solution },
             ].map((section) => (
               <div key={section.title} className="mb-8">
-                <h2 className="font-display text-xl font-semibold text-foreground mb-3">{section.title}</h2>
-                <p className="text-muted-foreground leading-relaxed">{section.content}</p>
+                <h2 className="font-display mb-3 text-xl font-semibold text-foreground">
+                  {section.title}
+                </h2>
+                <p className="leading-relaxed text-muted-foreground">{section.content}</p>
               </div>
             ))}
 
-            <div className="mb-12">
-              <h2 className="font-display text-xl font-semibold text-foreground mb-3">Tecnologias utilizadas</h2>
+            {/* Tecnologías */}
+            <div className="mb-10">
+              <h2 className="font-display mb-3 text-xl font-semibold text-foreground">
+                Tecnologías
+              </h2>
               <div className="flex flex-wrap gap-2">
                 {caseData.technologies.map((tech) => (
-                  <span key={tech} className="bg-secondary text-foreground text-sm px-3 py-1 rounded-full">{tech}</span>
+                  <span
+                    key={tech}
+                    className="rounded-full bg-secondary px-3 py-1 text-sm text-foreground"
+                  >
+                    {tech}
+                  </span>
                 ))}
               </div>
             </div>
 
-            <div className="bg-foreground rounded-lg p-8 text-center">
-              <h3 className="font-display text-xl font-bold text-primary-foreground mb-3">Quieres resultados similares?</h3>
-              <p className="text-primary-foreground/70 mb-6">Cuentanos tu reto y disenamos la solucion perfecta.</p>
+            {/* Navegación prev / next */}
+            <div className="mb-8 flex items-center justify-between gap-4 border-t border-border py-6">
+              {prevId ? (
+                <Link
+                  to={`/portfolio/${prevId}`}
+                  className="group flex max-w-[45%] items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <ChevronLeft className="h-4 w-4 flex-shrink-0 transition-transform group-hover:-translate-x-0.5" />
+                  <span className="truncate">{casesData[prevId].shortTitle}</span>
+                </Link>
+              ) : (
+                <span />
+              )}
+              {nextId ? (
+                <Link
+                  to={`/portfolio/${nextId}`}
+                  className="group ml-auto flex max-w-[45%] items-center gap-2 text-right text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <span className="truncate">{casesData[nextId].shortTitle}</span>
+                  <ChevronRight className="h-4 w-4 flex-shrink-0 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              ) : (
+                <span />
+              )}
+            </div>
+
+            {/* CTA */}
+            <div className="rounded-lg bg-foreground p-8 text-center">
+              <h3 className="font-display mb-3 text-xl font-bold text-primary-foreground">
+                ¿Quieres resultados similares?
+              </h3>
+              <p className="mb-6 text-primary-foreground/70">
+                Cuéntanos tu reto y diseñamos la solución perfecta.
+              </p>
               <Button variant="secondary" asChild>
-                <Link to="/contacto">Solicitar consultoria <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                <Link to="/contacto">
+                  Solicitar información <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </motion.div>

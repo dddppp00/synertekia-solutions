@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
+import heroBg from "@/assets/hero-bg.jpg";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -35,11 +36,11 @@ const getContactErrorMessage = (error: unknown) => {
   }
 
   if (message.toLowerCase().includes("invalid api key")) {
-    return "La API key de Supabase no es valida. Revisa VITE_SUPABASE_PUBLISHABLE_KEY.";
+    return "La API key de Supabase no es válida. Revisa VITE_SUPABASE_PUBLISHABLE_KEY.";
   }
 
   if (message.toLowerCase().includes("failed to fetch")) {
-    return "No se pudo conectar con Supabase. Verifica VITE_SUPABASE_URL y tu conexion.";
+    return "No se pudo conectar con Supabase. Verifica VITE_SUPABASE_URL y tu conexión.";
   }
 
   const code = pgError?.code ? `Codigo: ${pgError.code}. ` : "";
@@ -96,7 +97,7 @@ const Contacto = () => {
       });
       if (error) throw error;
       setSubmitted(true);
-      toast({ title: "¡Mensaje enviado!", description: "Nos pondremos en contacto contigo pronto." });
+      toast({ title: "Mensaje enviado", description: "Nos pondremos en contacto contigo pronto." });
     } catch (error: unknown) {
       console.error("Error enviando contacto a Supabase:", error);
       toast({ title: "Error", description: getContactErrorMessage(error), variant: "destructive" });
@@ -107,14 +108,53 @@ const Contacto = () => {
 
   return (
     <Layout>
+      {/* Hero */}
+      <section className="relative overflow-hidden md:min-h-[75vh] md:flex md:items-center">
+        <div className="absolute inset-0 z-0">
+          <div className="hidden md:block absolute inset-y-0 right-0 md:w-[65%] lg:w-[60%] xl:w-[56%]">
+            <img
+              src={heroBg}
+              alt=""
+              className="w-full h-full object-cover object-center"
+              style={{
+                WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
+                maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
+              }}
+            />
+          </div>
+          <div className="hidden md:block absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.72)_0%,hsl(var(--background)/0.46)_34%,hsl(var(--background)/0.24)_56%,hsl(var(--background)/0.14)_74%,hsl(var(--background)/0.18)_100%)]" />
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-background/12 via-transparent to-background/18" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.08),transparent_52%)]" />
+          <div className="md:hidden absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/40" />
+        </div>
+
+        <div className="container relative z-10 pt-14 pb-0 md:py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-2xl"
+          >
+            <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/8 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
+              Contacto
+            </span>
+            <h1 className="font-display mb-5 text-4xl font-bold leading-tight text-foreground md:text-5xl">
+              Soluciones de IA reales para problemas empresariales reales.
+            </h1>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              Solo implementamos lo que nosotros mismos usamos y hemos validado previamente. Déjanos tus datos y un breve resumen de tu mayor cuello de botella administrativo o directivo.
+            </p>
+          </motion.div>
+
+          <div className="md:hidden mt-10 overflow-hidden rounded-t-2xl h-64 relative">
+            <img src={heroBg} alt="" className="w-full h-full object-cover object-center" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28">
         <div className="container max-w-4xl">
-          <SectionHeading
-            tag="Contacto"
-            title="Solicitar consultoría"
-            description="Cuéntanos tus necesidades y te responderemos en menos de 24 horas."
-          />
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               {submitted ? (
@@ -124,8 +164,8 @@ const Contacto = () => {
                   className="bg-primary/10 rounded-lg p-12 text-center"
                 >
                   <CheckCircle className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <h3 className="font-display text-2xl font-bold text-foreground mb-2">¡Gracias por contactarnos!</h3>
-                  <p className="text-muted-foreground">Hemos recibido tu solicitud. Nuestro equipo se pondrá en contacto contigo en menos de 24 horas.</p>
+                  <h3 className="font-display text-2xl font-bold text-foreground mb-2">Gracias por contactarnos</h3>
+                  <p className="text-muted-foreground">Hemos recibido tu solicitud. Nuestro equipo se pondrá en contacto contigo en breve.</p>
                 </motion.div>
               ) : (
                 <motion.form
@@ -137,7 +177,7 @@ const Contacto = () => {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="nombre">Nombre *</Label>
+                      <Label htmlFor="nombre">Nombre / Persona de contacto *</Label>
                       <Input
                         id="nombre"
                         value={formData.nombre}
@@ -169,7 +209,7 @@ const Contacto = () => {
                       {errors.email && <p className="text-destructive text-xs mt-1">{errors.email}</p>}
                     </div>
                     <div>
-                      <Label htmlFor="telefono">Teléfono</Label>
+                      <Label htmlFor="telefono">Teléfono (Opcional)</Label>
                       <Input
                         id="telefono"
                         value={formData.telefono}
@@ -179,20 +219,20 @@ const Contacto = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="mensaje">Descripción de necesidades *</Label>
+                    <Label htmlFor="mensaje">¿Cuál es el mayor cuello de botella o proceso manual que te gustaría solucionar? *</Label>
                     <Textarea
                       id="mensaje"
                       rows={5}
                       value={formData.mensaje}
                       onChange={(e) => handleChange("mensaje", e.target.value)}
                       className={errors.mensaje ? "border-destructive" : ""}
-                      placeholder="Cuéntanos brevemente qué reto quieres resolver o qué objetivos tienes..."
+                      placeholder="Describe brevemente el proceso manual o cuello de botella principal de tu negocio..."
                     />
                     {errors.mensaje && <p className="text-destructive text-xs mt-1">{errors.mensaje}</p>}
                   </div>
 
                   <Button type="submit" size="lg" disabled={loading} className="w-full sm:w-auto">
-                    {loading ? "Enviando..." : "Enviar solicitud"}
+                    {loading ? "Enviando..." : "Hablemos de tu negocio"}
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </motion.form>
@@ -220,4 +260,3 @@ const Contacto = () => {
 };
 
 export default Contacto;
-

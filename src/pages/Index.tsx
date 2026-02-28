@@ -1,6 +1,7 @@
 ﻿import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, BarChart3, Cog, TrendingUp, Zap, Database, ChevronDown } from "lucide-react";
+import { ArrowRight, Brain, BarChart3, Cog, TrendingUp, Zap, Database, Timer, Target, BarChart2 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
@@ -10,6 +11,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import brandVisual from "@/assets/hero-bg-new.jpg";
 
 const fadeUp = {
@@ -31,16 +39,38 @@ const services = [
 ];
 
 const cases = [
-  { title: "Automatización logística", sector: "Logística", result: "+40% eficiencia operativa", desc: "Implementación de RPA para gestión de pedidos y tracking automatizado." },
-  { title: "BI para retail", sector: "Retail", result: "+25% incremento en ventas", desc: "Dashboard integral de ventas con predicción de demanda." },
-  { title: "Agente IA atención al cliente", sector: "Servicios", result: "-60% tiempo de respuesta", desc: "Chatbot inteligente con procesamiento de lenguaje natural." },
+  {
+    title: "Flujos administrativos y contables",
+    sector: "AUTOMATIZACIÓN",
+    result: "-65% Tiempo invertido en tareas administrativas",
+    desc: "Contexto: Organización con alto volumen de tareas repetitivas. Reto: exceso de horas en registro manual de dietas, extracciones y operaciones bancarias. Solución: implantación de flujos automatizados para dietas, balances y PyG, subvenciones vía API y contabilización de remesas. Tecnologías: Power Automate, Python, APIs REST, Excel y SQL.",
+  },
+  {
+    title: "IA en el sector hotelero",
+    sector: "FORMACIÓN",
+    result: "+80% Tasa de adopción en administración",
+    desc: "Contexto: cadena hotelera con necesidad de mejorar productividad administrativa. Reto: falta de conocimiento práctico en IA para tareas diarias. Solución: sesiones prácticas con casos reales, guías de prompts y protocolo de uso seguro. Tecnologías: ChatGPT, Copilot y Microsoft 365.",
+  },
+  {
+    title: "Curso de iniciación a la IA",
+    sector: "FORMACIÓN",
+    result: "+120 Personas formadas",
+    desc: "Contexto: programa para perfiles no técnicos de Pymes. Reto: interés en IA sin base metodológica para aplicarla con seguridad. Solución: curso intensivo orientado a productividad, automatización y evaluación de respuestas. Tecnologías: ChatGPT, Gemini, Copilot y Google Workspace.",
+  },
+  {
+    title: "Control financiero desde XML",
+    sector: "ANÁLISIS DE DATOS",
+    result: "-80% Tiempo de consolidación de datos",
+    desc: "Contexto: consultora que pasó de múltiples Excel a XML. Reto: transformación manual lenta que frenaba el reporting. Solución: construcción de un pipeline automatizado de extracción, limpieza y modelado financiero. Tecnologías: Python, Pandas, Power BI, SQL y XML parsers.",
+  },
+  {
+    title: "GPTs para productividad",
+    sector: "IA PERSONALIZADA",
+    result: "-90% Tiempo de redacción",
+    desc: "Contexto: equipos con alta carga documental especializada. Reto: pérdida masiva de tiempo en redacción de documentos y escritos para AAPP. Solución: desarrollo de GPTs y agentes con bases de conocimiento diversas. Tecnologías: ChatGPT, RAG, Vector DB y Python.",
+  },
 ];
 
-const testimonials = [
-  { name: "María García", company: "TechLogistics S.L.", text: "Synertekia transformó completamente nuestra operativa. La automatización nos ahorró cientos de horas al mes." },
-  { name: "Carlos Rodríguez", company: "RetailMax", text: "El dashboard de BI nos dio visibilidad total sobre nuestro negocio. Decisiones más rápidas y acertadas." },
-  { name: "Ana Fernández", company: "ServiciosPlus", text: "El agente IA de atención al cliente superó nuestras expectativas. Nuestros clientes están más satisfechos." },
-];
 
 const faqs = [
   { q: "¿Qué tipo de Consultoría IA ofrecéis?", a: "Ofrecemos Consultoría estratégica e implementación de soluciones de inteligencia artificial: desde análisis de viabilidad hasta el desarrollo e integración de modelos de IA en tu operativa empresarial." },
@@ -50,35 +80,40 @@ const faqs = [
   { q: "¿Necesito conocimientos técnicos para empezar?", a: "No. Nuestro equipo se encarga de todo el proceso técnico. Nos adaptamos a tu nivel de madurez digital y te acompañamos en cada paso." },
 ];
 
-const problems = [
-  { icon: "⏳", title: "Procesos ineficientes", desc: "Tareas manuales repetitivas que consumen tiempo y recursos valiosos." },
-  { icon: "🎯", title: "Sin estrategia en IA", desc: "Desconocimiento de cómo la inteligencia artificial puede impulsar tu negocio." },
-  { icon: "📊", title: "Datos desaprovechados", desc: "Información valiosa que no se convierte en decisiones estratégicas." },
+const problems: { icon: LucideIcon; title: string; desc: string }[] = [
+  { icon: Timer, title: "Procesos ineficientes", desc: "Tareas manuales repetitivas que consumen tiempo y recursos valiosos." },
+  { icon: Target, title: "Sin estrategia en IA", desc: "Desconocimiento de cómo la inteligencia artificial puede impulsar tu negocio." },
+  { icon: BarChart2, title: "Datos desaprovechados", desc: "Información valiosa que no se convierte en decisiones estratégicas." },
 ];
 
 const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative overflow-hidden md:min-h-[90vh] md:flex md:items-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-y-0 right-0 w-[74%] md:w-[68%] lg:w-[64%] xl:w-[60%]">
+          {/* Imagen de fondo — solo visible en desktop */}
+          <div className="hidden md:block absolute inset-y-0 right-0 md:w-[68%] lg:w-[64%] xl:w-[60%]">
             <img
               src={brandVisual}
               alt=""
-              className="w-full h-full object-cover object-[86%_55%] md:object-[90%_56%] lg:object-[96%_56%] contrast-[1.06] saturate-[1.04] brightness-[1.02]"
+              className="w-full h-full object-cover object-[90%_56%] lg:object-[96%_56%] contrast-[1.06] saturate-[1.04] brightness-[1.02]"
               style={{
                 WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
                 maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.42) 14%, rgba(0,0,0,0.82) 28%, rgba(0,0,0,1) 46%)",
               }}
             />
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.72)_0%,hsl(var(--background)/0.46)_34%,hsl(var(--background)/0.24)_56%,hsl(var(--background)/0.14)_74%,hsl(var(--background)/0.18)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/12 via-transparent to-background/18" />
+          {/* Gradientes desktop */}
+          <div className="hidden md:block absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.72)_0%,hsl(var(--background)/0.46)_34%,hsl(var(--background)/0.24)_56%,hsl(var(--background)/0.14)_74%,hsl(var(--background)/0.18)_100%)]" />
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-background/12 via-transparent to-background/18" />
+          {/* Gradiente decorativo — ambos tamaños */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,hsl(var(--primary)/0.08),transparent_52%)]" />
+          {/* Gradiente mobile */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/40" />
         </div>
 
-        <div className="container relative z-10 py-20 md:py-32">
+        <div className="container relative z-10 pt-14 pb-0 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +124,7 @@ const Index = () => {
               <span className="text-primary">Consultoría estratégica en inteligencia artificial</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 mb-8 max-w-2xl leading-relaxed">
-            Soluciones de IA personalizadas, formación, automatización de procesos y Business Intelligence.
+              Soluciones de IA personalizadas, formación, automatización de procesos y Business Intelligence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild>
@@ -103,6 +138,16 @@ const Index = () => {
               </Button>
             </div>
           </motion.div>
+
+          {/* Imagen visible solo en mobile, debajo del texto */}
+          <div className="md:hidden mt-10 overflow-hidden rounded-t-2xl h-64 relative">
+            <img
+              src={brandVisual}
+              alt=""
+              className="w-full h-full object-cover object-[86%_30%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
+          </div>
         </div>
       </section>
 
@@ -125,7 +170,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 className="bg-card rounded-lg p-8 shadow-sm border border-border"
               >
-                <span className="text-4xl mb-4 block">{p.icon}</span>
+                <p.icon className="h-10 w-10 text-primary mb-4" />
                 <h3 className="font-display text-xl font-semibold mb-2 text-foreground">{p.title}</h3>
                 <p className="text-muted-foreground">{p.desc}</p>
               </motion.div>
@@ -178,26 +223,31 @@ const Index = () => {
             title="Casos de éxito"
             description="Proyectos reales con resultados medibles para empresas como la tuya."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {cases.map((c, i) => (
-              <motion.div
-                key={c.title}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="bg-card rounded-lg p-8 border border-border hover:shadow-md transition-all"
-              >
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary">{c.sector}</span>
-                <h3 className="font-display text-xl font-semibold mt-2 mb-2 text-foreground">{c.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{c.desc}</p>
-                <div className="bg-primary/10 rounded-md px-4 py-2 inline-block">
-                  <span className="text-primary font-semibold text-sm">{c.result}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <Carousel opts={{ align: "start", loop: true }} className="w-full px-12">
+            <CarouselContent>
+              {cases.map((c, i) => (
+                <CarouselItem key={c.title} className="basis-full md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    custom={i}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="bg-card rounded-lg p-8 border border-border hover:shadow-md transition-all h-full"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-wider text-primary">{c.sector}</span>
+                    <h3 className="font-display text-xl font-semibold mt-2 mb-2 text-foreground">{c.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4">{c.desc}</p>
+                    <div className="bg-primary/10 rounded-md px-4 py-2 inline-block">
+                      <span className="text-primary font-semibold text-sm">{c.result}</span>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
           <div className="text-center mt-10">
             <Button variant="outline" asChild>
               <Link to="/portfolio">
@@ -205,35 +255,6 @@ const Index = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 md:py-28">
-        <div className="container">
-          <SectionHeading
-            tag="Testimonios"
-            title="Lo que dicen nuestros clientes"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="bg-card rounded-lg p-8 border border-border"
-              >
-                <p className="text-muted-foreground italic mb-6 leading-relaxed">"{t.text}"</p>
-                <div>
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-sm text-muted-foreground">{t.company}</p>
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
